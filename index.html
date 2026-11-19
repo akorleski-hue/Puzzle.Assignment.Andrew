@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox & CSS Grid Puzzle</title>
+  <style>
+    /* Reset & Base Styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      color: #1e293b;
+    }
+
+    /* 1. CSS GRID PAGE LAYOUT (3 Sections) */
+    .page-grid {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header"
+        "main"
+        "footer";
+      min-height: 100vh;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .grid-header {
+      grid-area: header;
+      background-color: #1e293b;
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .grid-header h1 {
+      margin-bottom: 8px;
+    }
+
+    .grid-main {
+      grid-area: main;
+      display: grid;
+      place-items: center;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-footer {
+      grid-area: footer;
+      background-color: #1e293b;
+      color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    /* 2. FLEXBOX PUZZLE CONTAINER */
+    .puzzle-container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+      align-content: flex-start;
+      /* Adjust width to match your puzzle's exact row width */
+      width: 600px;
+      border: 4px solid #334155;
+    }
+
+    /* Individual Puzzle Pieces */
+    .piece {
+      /* Use 33.333% for a 3-column puzzle, or 25% for a 4-column puzzle */
+      width: 33.333%;
+      height: auto;
+      display: block;
+    }
+
+    /* 3. HIDE THE FAULTY PIECE */
+    .faulty-piece {
+      display: none;
+    }
+
+    /* 4. SOLVING THE PUZZLE WITH FLEX ORDER */
+    /* Change the order numbers below to place each piece in its correct spot */
+    .p1 { order: 1; }
+    .p2 { order: 2; }
+    .p3 { order: 3; }
+    .p4 { order: 4; }
+    .p5 { order: 5; }
+    .p6 { order: 6; }
+    .p7 { order: 7; }
+    .p8 { order: 8; }
+    .p9 { order: 9; }
+  </style>
+</head>
+<body>
+
+  <div class="page-grid">
+    <!-- Section 1: Your Name & Selected Puzzle -->
+    <header class="grid-header">
+      <h1>Your Full Name</h1>
+      <p>Selected Puzzle: <strong>Butterflies</strong></p>
+    </header>
+
+    <!-- Section 2: Flexbox Puzzle Container -->
+    <main class="grid-main">
+      <div class="puzzle-container">
+        <!-- Update the image filenames to match your 'images' folder -->
+        <img src="images/piece1.jpg" alt="Puzzle piece 1" class="piece p1">
+        <img src="images/piece2.jpg" alt="Puzzle piece 2" class="piece p2">
+        <img src="images/piece3.jpg" alt="Puzzle piece 3" class="piece p3">
+        <img src="images/piece4.jpg" alt="Puzzle piece 4" class="piece p4">
+        <img src="images/piece5.jpg" alt="Puzzle piece 5" class="piece p5">
+        <img src="images/piece6.jpg" alt="Puzzle piece 6" class="piece p6">
+        <img src="images/piece7.jpg" alt="Puzzle piece 7" class="piece p7">
+        <img src="images/piece8.jpg" alt="Puzzle piece 8" class="piece p8">
+        <img src="images/piece9.jpg" alt="Puzzle piece 9" class="piece p9">
+        
+        <!-- Faulty piece included in HTML, hidden via display: none -->
+        <img src="images/faulty.jpg" alt="Trick puzzle piece" class="piece faulty-piece">
+      </div>
+    </main>
+
+    <!-- Section 3: Assignment Completion Date -->
+    <footer class="grid-footer">
+      <p>Completed on: November 18, 2026</p>
+    </footer>
+  </div>
+
+</body>
+</html>

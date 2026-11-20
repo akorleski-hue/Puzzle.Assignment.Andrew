@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flexbox & CSS Grid Puzzle Assignment</title>
+  <title>Andrew's Flexbox & CSS Grid Puzzle Assignment</title>
   <style>
-    /* GENERAL PAGE STYLING */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -21,7 +20,7 @@
       padding: 30px;
     }
 
-    /* 1. CSS GRID PAGE LAYOUT (3 Required Sections) */
+    /* CSS GRID PAGE LAYOUT */
     .grid-container {
       display: grid;
       grid-template-rows: auto 1fr auto;
@@ -60,82 +59,69 @@
       color: #475569;
     }
 
-    /* 2. FLEXBOX PUZZLE CONTAINER (4 Columns x 3 Rows) */
+    /* FLEXBOX PUZZLE CONTAINER (4 Columns x 3 Rows) */
     .flex-puzzle {
       display: flex;
       flex-wrap: wrap;
-      box-sizing: content-box; /* Keeps border from breaking the 4-column wrap */
-      width: 600px; /* IMPORTANT: Set to (4 x width of 1 image piece) */
+      box-sizing: content-box;
+      width: 600px; /* 4 columns x 150px each */
       border: 4px solid #0f172a;
     }
 
     .flex-puzzle img {
       display: block;
-      width: 150px; /* IMPORTANT: Match your exact single image pixel width */
+      width: 150px;
       height: auto;
     }
 
-    /* 3. HIDE THE FAULTY/TRICK PIECE */
+    /* HIDE THE TRICK PIECE */
     .hidden-piece {
       display: none;
     }
 
-    /* 4. SOLVING THE 4x3 PUZZLE USING FLEX ORDER */
-    /* Row 1 (Top) */
-    .pos-1 { order: 1; }
-    .pos-2 { order: 2; }
-    .pos-3 { order: 3; }
-    .pos-4 { order: 4; }
-
-    /* Row 2 (Middle) */
-    .pos-5 { order: 5; }
-    .pos-6 { order: 6; }
-    .pos-7 { order: 7; }
-    .pos-8 { order: 8; }
-
-    /* Row 3 (Bottom) */
-    .pos-9  { order: 9; }
-    .pos-10 { order: 10; }
-    .pos-11 { order: 11; }
-    .pos-12 { order: 12; }
+    /* FLEX ORDER FOR ALL 12 ACTIVE PIECES (Adjust order numbers if any letter is swapped) */
+    .piece-A { order: 1; }
+    .piece-B { order: 2; }
+    .piece-C { order: 3; }
+    .piece-D { order: 4; }
+    .piece-E { order: 5; }
+    .piece-F { order: 6; }
+    .piece-G { order: 7; }
+    .piece-H { order: 8; }
+    .piece-I { order: 9; }
+    .piece-J { order: 10; }
+    .piece-K { order: 11; }
+    .piece-L { order: 12; }
   </style>
 </head>
 <body>
 
   <div class="grid-container">
-    <!-- Section 1: Your Name & Selected Puzzle -->
     <header class="header-section">
-      <h1>Your Name Here</h1>
+      <h1>Andrew</h1>
       <p>Selected Puzzle: <strong>Snowmen</strong></p>
     </header>
 
-    <!-- Section 2: Flex Puzzle Container -->
     <main class="puzzle-section">
       <div class="flex-puzzle">
-        <!-- Row 1 Pieces -->
-        <img src="images/FILENAME_SKY_ONLY.png" alt="Top left blue sky" class="pos-1">
-        <img src="images/FILENAME_LEFT_HEAD.png" alt="Left snowman head and carrot nose" class="pos-2">
-        <img src="images/FILENAME_TOP_CENTER_SKY.png" alt="Top center sky and head curves" class="pos-3">
-        <img src="images/FILENAME_RIGHT_HAT_WITH_NOSE.png" alt="Right snowman hat, nose, and smile" class="pos-4">
-
-        <!-- Row 2 Pieces -->
-        <img src="images/FILENAME_MOUNTAIN.png" alt="Snowy mountain peak" class="pos-5">
-        <img src="images/FILENAME_LEFT_BUTTONS.png" alt="Left snowman smile and buttons" class="pos-6">
-        <img src="images/FILENAME_ARMS_TOUCHING.png" alt="Snowmen arms touching in middle" class="pos-7">
-        <img src="images/FILENAME_RIGHT_BODY.png" alt="Right snowman body and arm" class="pos-8">
-
-        <!-- Row 3 Pieces -->
-        <img src="images/FILENAME_BOTTOM_LEFT_SNOW.png" alt="Bottom left snow slope" class="pos-9">
-        <img src="images/FILENAME_BOTTOM_LEFT_BASE.png" alt="Left snowman base" class="pos-10">
-        <img src="images/FILENAME_BOTTOM_CENTER_GAP.png" alt="Gap between snowmen bases" class="pos-11">
-        <img src="images/FILENAME_BOTTOM_RIGHT_TREES.png" alt="Right snowman base and trees" class="pos-12">
-
-        <!-- Hidden Trick Piece (Cropped hat without carrot nose) -->
-        <img src="images/FILENAME_TRICK_HAT_NO_NOSE.png" alt="Faulty puzzle piece" class="hidden-piece">
+        <img src="images/puzzle2_A.jpg" alt="Puzzle piece A" class="piece-A">
+        <img src="images/puzzle2_B.jpg" alt="Puzzle piece B" class="piece-B">
+        <img src="images/puzzle2_C.jpg" alt="Puzzle piece C" class="piece-C">
+        <img src="images/puzzle2_D.jpg" alt="Puzzle piece D" class="piece-D">
+        <img src="images/puzzle2_E.jpg" alt="Puzzle piece E" class="piece-E">
+        <img src="images/puzzle2_F.jpg" alt="Puzzle piece F" class="piece-F">
+        <img src="images/puzzle2_G.jpg" alt="Puzzle piece G" class="piece-G">
+        <img src="images/puzzle2_H.jpg" alt="Puzzle piece H" class="piece-H">
+        <img src="images/puzzle2_I.jpg" alt="Puzzle piece I" class="piece-I">
+        <img src="images/puzzle2_J.jpg" alt="Puzzle piece J" class="piece-J">
+        <img src="images/puzzle2_K.jpg" alt="Puzzle piece K" class="piece-K">
+        <img src="images/puzzle2_L.jpg" alt="Puzzle piece L" class="piece-L">
+        
+        <!-- Move class="hidden-piece" to whichever letter shows the cropped hat WITHOUT the carrot nose -->
+        <img src="images/puzzle2_M.jpg" alt="Puzzle piece M" class="hidden-piece">
       </div>
     </main>
 
-    <!-- Section 3: Completion Date -->
     <footer class="footer-section">
       <p>Completed on: November 20, 2026</p>
     </footer>

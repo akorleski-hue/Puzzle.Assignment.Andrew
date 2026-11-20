@@ -74,24 +74,27 @@
       height: auto;
     }
 
-    /* HIDE THE TRICK PIECE */
+    /* HIDE THE TRICK PIECE (puzzle2_M.jpg) */
     .hidden-piece {
       display: none;
     }
 
-    /* FLEX ORDER FOR ALL 12 ACTIVE PIECES */
-    .piece-A { order: 1; }
-    .piece-B { order: 2; }
-    .piece-C { order: 3; }
-    .piece-D { order: 4; }
-    .piece-E { order: 5; }
-    .piece-F { order: 6; }
-    .piece-G { order: 7; }
-    .piece-H { order: 8; }
-    .piece-I { order: 9; }
-    .piece-J { order: 10; }
-    .piece-K { order: 11; }
-    .piece-L { order: 12; }
+    /* SOLVED FLEX ORDER */
+    /* A, B, and C fill spots 2, 3, and 8 (check these 3 once visible) */
+    .piece-A { order: 2; }
+    .piece-B { order: 3; }
+    .piece-C { order: 8; }
+
+    /* Verified from your thumbnails: */
+    .piece-D { order: 4; }  /* Top-right: purple hat with nose & smile */
+    .piece-E { order: 1; }  /* Top-left: blue sky only */
+    .piece-F { order: 9; }  /* Bottom-left: sloping snow */
+    .piece-G { order: 6; }  /* Middle-left-center: left snowman smile & buttons */
+    .piece-H { order: 11; } /* Bottom-center-right: gap between bases */
+    .piece-I { order: 12; } /* Bottom-right: dark trees & snowman base */
+    .piece-J { order: 10; } /* Bottom-center-left: sloping snow & left base */
+    .piece-K { order: 7; }  /* Middle-center-right: snowmen arms touching */
+    .piece-L { order: 5; }  /* Middle-left: snowy mountain peak */
   </style>
 </head>
 <body>
@@ -116,7 +119,7 @@
         <img src="images/puzzle2_J.jpg" alt="Puzzle piece J" class="piece-J">
         <img src="images/puzzle2_K.jpg" alt="Puzzle piece K" class="piece-K">
         <img src="images/puzzle2_L.jpg" alt="Puzzle piece L" class="piece-L">
-        <img src="images/puzzle2_M.jpg" alt="Puzzle piece M" class="hidden-piece">
+        <img src="images/puzzle2_M.jpg" alt="Faulty trick piece" class="hidden-piece">
       </div>
     </main>
 

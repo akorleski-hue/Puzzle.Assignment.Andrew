@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snowmen Flex & Grid Puzzle</title>
+  <title>Flexbox & CSS Grid Puzzle Assignment</title>
   <style>
-    /* Reset & Base Styling */
+    /* GENERAL PAGE STYLING */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,97 +14,86 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-      color: #0f172a;
+      background-color: #e2e8f0;
+      color: #1e293b;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
     }
 
-    /* 1. CSS Grid Layout (3 Required Sections) */
-    .page-grid {
+    /* 1. CSS GRID PAGE LAYOUT (3 Required Sections) */
+    .grid-container {
       display: grid;
       grid-template-rows: auto 1fr auto;
       grid-template-areas:
         "header"
-        "main"
+        "puzzle"
         "footer";
-      min-height: 100vh;
       gap: 20px;
-      padding: 20px;
-    }
-
-    .grid-header {
-      grid-area: header;
-      background-color: #0369a1;
-      color: #ffffff;
-      text-align: center;
-      padding: 24px;
+      max-width: 800px;
+      width: 100%;
+      background: #ffffff;
+      padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .grid-header h1 {
-      margin-bottom: 6px;
-      font-size: 1.8rem;
+    .header-section {
+      grid-area: header;
+      text-align: center;
+      border-bottom: 2px solid #cbd5e1;
+      padding-bottom: 15px;
     }
 
-    .grid-main {
-      grid-area: main;
+    .puzzle-section {
+      grid-area: puzzle;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .grid-footer {
+    .footer-section {
       grid-area: footer;
-      background-color: #0c4a6e;
-      color: #f0f9ff;
       text-align: center;
-      padding: 16px;
-      border-radius: 12px;
-      font-weight: 500;
+      border-top: 2px solid #cbd5e1;
+      padding-top: 15px;
+      color: #475569;
     }
 
-    /* 2. Flexbox Puzzle Container (4 Columns x 3 Rows) */
-    .puzzle-container {
+    /* 2. FLEXBOX PUZZLE CONTAINER (4 Columns x 3 Rows) */
+    .flex-puzzle {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      align-content: flex-start;
-      width: 600px;
-      max-width: 100%;
-      border: 8px solid #0369a1;
-      border-radius: 10px;
-      background-color: #ffffff;
-      box-shadow: 0 12px 28px rgba(3, 105, 161, 0.25);
-      overflow: hidden;
+      box-sizing: content-box; /* Keeps border from breaking the 4-column wrap */
+      width: 600px; /* IMPORTANT: Set to (4 x width of 1 image piece) */
+      border: 4px solid #0f172a;
     }
 
-    /* 4 pieces per row = 25% width each */
-    .piece {
-      flex: 0 0 25%;
-      width: 25%;
-      height: auto;
+    .flex-puzzle img {
       display: block;
+      width: 150px; /* IMPORTANT: Match your exact single image pixel width */
+      height: auto;
     }
 
-    /* 3. Hide the Faulty/Trick Piece */
-    .faulty-piece {
+    /* 3. HIDE THE FAULTY/TRICK PIECE */
+    .hidden-piece {
       display: none;
     }
 
-    /* 4. Exact Flexbox Order for Each Snowman Piece */
-    /* Row 1 */
-    .pos-1  { order: 1; }
-    .pos-2  { order: 2; }
-    .pos-3  { order: 3; }
-    .pos-4  { order: 4; }
+    /* 4. SOLVING THE 4x3 PUZZLE USING FLEX ORDER */
+    /* Row 1 (Top) */
+    .pos-1 { order: 1; }
+    .pos-2 { order: 2; }
+    .pos-3 { order: 3; }
+    .pos-4 { order: 4; }
 
-    /* Row 2 */
-    .pos-5  { order: 5; }
-    .pos-6  { order: 6; }
-    .pos-7  { order: 7; }
-    .pos-8  { order: 8; }
+    /* Row 2 (Middle) */
+    .pos-5 { order: 5; }
+    .pos-6 { order: 6; }
+    .pos-7 { order: 7; }
+    .pos-8 { order: 8; }
 
-    /* Row 3 */
+    /* Row 3 (Bottom) */
     .pos-9  { order: 9; }
     .pos-10 { order: 10; }
     .pos-11 { order: 11; }
@@ -113,47 +102,43 @@
 </head>
 <body>
 
-  <div class="page-grid">
-
-    <!-- Grid Section 1: Name & Selected Puzzle -->
-    <header class="grid-header">
+  <div class="grid-container">
+    <!-- Section 1: Your Name & Selected Puzzle -->
+    <header class="header-section">
       <h1>Your Name Here</h1>
       <p>Selected Puzzle: <strong>Snowmen</strong></p>
     </header>
 
-    <!-- Grid Section 2: Flex Puzzle Container -->
-    <main class="grid-main">
-      <div class="puzzle-container">
-        
-        <!-- Row 1 Pieces (Update filenames to match your images/ folder) -->
-        <img src="images/sky-only.png" alt="Row 1 Col 1: Blue snowy sky" class="piece pos-1">
-        <img src="images/sky-hat-edge.png" alt="Row 1 Col 2: Sky with hat edge" class="piece pos-2">
-        <img src="images/snowman-eyes-nose.png" alt="Row 1 Col 3: Snowman head with carrot nose" class="piece pos-3">
-        <img src="images/pink-hat-carrot-nose.png" alt="Row 1 Col 4: Small snowman with pink hat and carrot nose" class="piece pos-4">
+    <!-- Section 2: Flex Puzzle Container -->
+    <main class="puzzle-section">
+      <div class="flex-puzzle">
+        <!-- Row 1 Pieces -->
+        <img src="images/FILENAME_SKY_ONLY.png" alt="Top left blue sky" class="pos-1">
+        <img src="images/FILENAME_LEFT_HEAD.png" alt="Left snowman head and carrot nose" class="pos-2">
+        <img src="images/FILENAME_TOP_CENTER_SKY.png" alt="Top center sky and head curves" class="pos-3">
+        <img src="images/FILENAME_RIGHT_HAT_WITH_NOSE.png" alt="Right snowman hat, nose, and smile" class="pos-4">
 
         <!-- Row 2 Pieces -->
-        <img src="images/mountain-peak.png" alt="Row 2 Col 1: Rocky mountain peak" class="piece pos-5">
-        <img src="images/left-arm-torso.png" alt="Row 2 Col 2: Left snowman torso and arm" class="piece pos-6">
-        <img src="images/smile-buttons-arm.png" alt="Row 2 Col 3: Snowman smile, buttons, and right arm" class="piece pos-7">
-        <img src="images/touching-arms.png" alt="Row 2 Col 4: Snowmen arms touching" class="piece pos-8">
+        <img src="images/FILENAME_MOUNTAIN.png" alt="Snowy mountain peak" class="pos-5">
+        <img src="images/FILENAME_LEFT_BUTTONS.png" alt="Left snowman smile and buttons" class="pos-6">
+        <img src="images/FILENAME_ARMS_TOUCHING.png" alt="Snowmen arms touching in middle" class="pos-7">
+        <img src="images/FILENAME_RIGHT_BODY.png" alt="Right snowman body and arm" class="pos-8">
 
         <!-- Row 3 Pieces -->
-        <img src="images/snow-slope-trees.png" alt="Row 3 Col 1: Sloping snow and trees" class="piece pos-9">
-        <img src="images/bottom-left-base.png" alt="Row 3 Col 2: Bottom left snowman base" class="piece pos-10">
-        <img src="images/bottom-middle-gap.png" alt="Row 3 Col 3: Gap between snowmen bases" class="piece pos-11">
-        <img src="images/bottom-right-ledge.png" alt="Row 3 Col 4: Right side of snowman against dark trees" class="piece pos-12">
+        <img src="images/FILENAME_BOTTOM_LEFT_SNOW.png" alt="Bottom left snow slope" class="pos-9">
+        <img src="images/FILENAME_BOTTOM_LEFT_BASE.png" alt="Left snowman base" class="pos-10">
+        <img src="images/FILENAME_BOTTOM_CENTER_GAP.png" alt="Gap between snowmen bases" class="pos-11">
+        <img src="images/FILENAME_BOTTOM_RIGHT_TREES.png" alt="Right snowman base and trees" class="pos-12">
 
-        <!-- Faulty / Trick Piece (Cropped pink hat without nose - hidden via display: none) -->
-        <img src="images/trick-pink-hat-no-nose.png" alt="Faulty trick puzzle piece" class="piece faulty-piece">
-
+        <!-- Hidden Trick Piece (Cropped hat without carrot nose) -->
+        <img src="images/FILENAME_TRICK_HAT_NO_NOSE.png" alt="Faulty puzzle piece" class="hidden-piece">
       </div>
     </main>
 
-    <!-- Grid Section 3: Completion Date -->
-    <footer class="grid-footer">
-      <p>Assignment Completed: November 18, 2026</p>
+    <!-- Section 3: Completion Date -->
+    <footer class="footer-section">
+      <p>Completed on: November 20, 2026</p>
     </footer>
-
   </div>
 
 </body>

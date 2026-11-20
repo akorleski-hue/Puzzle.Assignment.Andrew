@@ -59,7 +59,7 @@
       color: #475569;
     }
 
-    /* FLEXBOX PUZZLE CONTAINER (4 Columns x 3 Rows) */
+    /* FLEXBOX PUZZLE CONTAINER (4 Columns x 3 Rows = 600px x 450px) */
     .flex-puzzle {
       display: flex;
       flex-wrap: wrap;
@@ -71,7 +71,7 @@
     .flex-puzzle img {
       display: block;
       width: 150px;
-      height: auto;
+      height: 150px;
     }
 
     /* HIDE THE TRICK PIECE (puzzle2_M.jpg) */
@@ -79,19 +79,24 @@
       display: none;
     }
 
-    /* SOLVED FLEX ORDER */
-    .piece-A { order: 2; }
-    .piece-B { order: 3; }
-    .piece-C { order: 8; }
-    .piece-D { order: 4; }
-    .piece-E { order: 1; }
-    .piece-F { order: 9; }
-    .piece-G { order: 6; }
-    .piece-H { order: 11; }
-    .piece-I { order: 12; }
-    .piece-J { order: 10; }
-    .piece-K { order: 7; }
-    .piece-L { order: 5; }
+    /* EXACT SOLVED POSITIONS FROM YOUR SCREENSHOT */
+    /* Row 1 (Top: left-to-right) */
+    .piece-D { order: 1; }  /* Pink pom-pom hat snowman (top-left) */
+    .piece-E { order: 2; }  /* Blue sky with falling snow (top-center-left) */
+    .piece-B { order: 3; }  /* Blue sky with falling snow (top-center-right) */
+    .piece-A { order: 4; }  /* Right snowman eyes & carrot nose (top-right) */
+
+    /* Row 2 (Middle: left-to-right) */
+    .piece-K { order: 5; }  /* Left snowman arms & right snowman arm reaching (middle-left) */
+    .piece-L { order: 6; }  /* Snowy mountain peak (middle-center-left) */
+    .piece-G { order: 7; }  /* Right snowman smile, buttons, & right arm (middle-center-right) */
+    .piece-C { order: 8; }  /* Far-right edge of right snowman/trees (middle-right) */
+
+    /* Row 3 (Bottom: left-to-right) */
+    .piece-F { order: 9; }  /* Sloping white snow ground (bottom-left) */
+    .piece-J { order: 10; } /* Sloping snow meeting left snowman base (bottom-center-left) */
+    .piece-H { order: 11; } /* Gap between snowmen bases (bottom-center-right) */
+    .piece-I { order: 12; } /* Right snowman base & dark trees (bottom-right) */
   </style>
 </head>
 <body>
